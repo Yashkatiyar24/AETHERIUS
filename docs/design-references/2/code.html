@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetherius | Quantum Submit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#ac8eff",
+                    "on-secondary-fixed-variant": "#005964",
+                    "on-secondary-fixed": "#003a42",
+                    "on-error-container": "#ffb2b9",
+                    "surface-bright": "#2c2c2c",
+                    "on-primary-fixed": "#000000",
+                    "secondary-container": "#006875",
+                    "tertiary-fixed": "#ffd709",
+                    "surface-dim": "#0e0e0e",
+                    "surface-container-lowest": "#000000",
+                    "on-surface-variant": "#ababab",
+                    "outline": "#757575",
+                    "on-tertiary-fixed-variant": "#665500",
+                    "on-primary-fixed-variant": "#350088",
+                    "inverse-primary": "#6d23f9",
+                    "primary-dim": "#834fff",
+                    "background": "#0e0e0e",
+                    "primary": "#b89fff",
+                    "surface-tint": "#b89fff",
+                    "surface-container-low": "#131313",
+                    "on-primary-container": "#2a0070",
+                    "surface-container": "#191919",
+                    "on-tertiary": "#655400",
+                    "tertiary-fixed-dim": "#efc900",
+                    "tertiary-dim": "#efc900",
+                    "outline-variant": "#484848",
+                    "secondary": "#00e3fd",
+                    "primary-fixed-dim": "#a07dff",
+                    "on-tertiary-fixed": "#453900",
+                    "tertiary-container": "#ffd709",
+                    "error-container": "#a70138",
+                    "surface-variant": "#262626",
+                    "inverse-on-surface": "#555555",
+                    "surface-container-highest": "#262626",
+                    "surface-container-high": "#1f1f1f",
+                    "primary-fixed": "#ac8eff",
+                    "on-tertiary-container": "#5b4b00",
+                    "error": "#ff6e84",
+                    "tertiary": "#ffe792",
+                    "on-primary": "#37008e",
+                    "on-secondary-container": "#e8fbff",
+                    "secondary-fixed": "#26e6ff",
+                    "on-secondary": "#004d57",
+                    "on-background": "#ffffff",
+                    "secondary-dim": "#00d4ec",
+                    "secondary-fixed-dim": "#00d7f0",
+                    "surface": "#0e0e0e",
+                    "error-dim": "#d73357",
+                    "inverse-surface": "#f9f9f9",
+                    "on-surface": "#ffffff",
+                    "on-error": "#490013"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 31, 31, 0.4);
+            backdrop-filter: blur(20px) saturate(180%);
+            position: relative;
+        }
+        .glass-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("https://www.transparenttextures.com/patterns/stardust.png");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .quantum-glow {
+            box-shadow: 0 0 40px rgba(184, 159, 255, 0.15);
+        }
+        .recessed-well {
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .dimension-ring {
+            perspective: 1000px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary/30 min-h-screen overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-3 bg-black/40 backdrop-blur-xl rounded-full mt-4 mx-4 shadow-[0_0_20px_rgba(184,159,255,0.1)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up abstract iridescent liquid texture with dark obsidian reflections and violet highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvsaOMW2K3_-cd1HYgG8nhI67KJ00VJyDevfvoxmVUywVRPsGQ_MQHjrVWfCKYC6yyCMrTr1NPWu6dDdNYW46E7V5G0FvKtWskUmLUYh63MnK-9yi88NJWfAmeC1DzWKwwzu1bKg2BujV-uyJ6Lc_m0XMe1jc0jSfrypsf6I8RXtHlkG8kvsh9zyjnRQum5JTwsA_DMz7LomhHYEe5OR4Wsn_oJUiQNY5M5sJiowwKnckioR1GIC5VoQGsLWvM94Q9VrnDMvXPNDT-"/>
+</div>
+<span class="text-lg font-black tracking-[-0.04em] text-white uppercase">AETHERIUS</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-white/10 transition-all duration-300 text-white/60">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/10 transition-all duration-300 text-white/60">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</nav>
+<!-- Main Content: The Quantum Portal -->
+<main class="pt-32 pb-32 px-6 max-w-2xl mx-auto relative">
+<!-- Deep Space Background Effect -->
+<div class="fixed inset-0 pointer-events-none -z-10 bg-[radial-gradient(circle_at_50%_0%,#1a0b3a_0%,#000000_70%)] opacity-80"></div>
+<!-- Value Flux Input Section -->
+<section class="mb-12 text-center">
+<label class="font-label text-[10px] tracking-[0.2em] text-primary/60 uppercase mb-4 block">Amount to Flux</label>
+<div class="relative group">
+<input class="w-full bg-transparent border-none text-center text-7xl md:text-8xl font-headline font-extrabold tracking-tighter text-white focus:ring-0 placeholder-white/10 selection:bg-secondary/30" type="text" value="0.00"/>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 blur-[2px]"></div>
+<!-- Validation Glow: Active when 0 -->
+<div class="mt-6 flex items-center justify-center gap-2 text-error animate-pulse">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-label text-[11px] tracking-widest uppercase">Critical Error: Value Required</span>
+</div>
+</div>
+</section>
+<!-- Flux Mode Toggle -->
+<section class="mb-10">
+<div class="p-1 bg-surface-container-low rounded-full flex gap-1 border border-outline-variant/10">
+<button class="flex-1 py-4 px-6 rounded-full bg-surface-container-high text-secondary shadow-lg font-headline font-bold text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">south_east</span>
+                    EXPENSE
+                </button>
+<button class="flex-1 py-4 px-6 rounded-full text-on-surface-variant hover:text-white transition-all font-headline font-bold text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">north_east</span>
+                    INCOME
+                </button>
+</div>
+</section>
+<!-- Dimension Selector (Categories) -->
+<section class="mb-12">
+<header class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-headline font-bold text-white">Select Dimension</h2>
+<p class="text-on-surface-variant text-sm font-body">Categorize your flux trajectory</p>
+</div>
+<span class="font-label text-[10px] text-secondary tracking-widest uppercase">4 Vectors Active</span>
+</header>
+<div class="grid grid-cols-4 gap-4 dimension-ring">
+<!-- Dimension Item -->
+<div class="group flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-xl glass-panel border border-outline-variant/30 flex items-center justify-center text-primary-fixed group-hover:border-primary/50 group-hover:scale-110 transition-all duration-500 cursor-pointer">
+<span class="material-symbols-outlined text-3xl animate-float">shopping_cart</span>
+</div>
+<span class="font-label text-[9px] tracking-widest text-on-surface-variant uppercase">Essentials</span>
+</div>
+<div class="group flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-xl glass-panel border border-outline-variant/30 flex items-center justify-center text-secondary group-hover:border-secondary/50 group-hover:scale-110 transition-all duration-500 cursor-pointer">
+<span class="material-symbols-outlined text-3xl animate-float" style="animation-delay: 0.5s">flight</span>
+</div>
+<span class="font-label text-[9px] tracking-widest text-on-surface-variant uppercase">Transit</span>
+</div>
+<div class="group flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-xl glass-panel border border-primary/40 bg-primary/10 flex items-center justify-center text-white scale-110 shadow-[0_0_20px_rgba(184,159,255,0.3)] transition-all duration-500 cursor-pointer">
+<span class="material-symbols-outlined text-3xl animate-float" style="font-variation-settings: 'FILL' 1; animation-delay: 1s">electric_bolt</span>
+</div>
+<span class="font-label text-[9px] tracking-widest text-primary uppercase">Quantum</span>
+</div>
+<div class="group flex flex-col items-center gap-3">
+<div class="w-16 h-16 rounded-xl glass-panel border border-outline-variant/30 flex items-center justify-center text-tertiary group-hover:border-tertiary/50 group-hover:scale-110 transition-all duration-500 cursor-pointer">
+<span class="material-symbols-outlined text-3xl animate-float" style="animation-delay: 1.5s">restaurant</span>
+</div>
+<span class="font-label text-[9px] tracking-widest text-on-surface-variant uppercase">Fuel</span>
+</div>
+</div>
+</section>
+<!-- Celestial Calendar & Details -->
+<section class="space-y-6">
+<div class="glass-panel rounded-lg p-6 border border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="p-4 rounded-full bg-surface-container-low recessed-well">
+<span class="material-symbols-outlined text-secondary">calendar_today</span>
+</div>
+<div class="flex-1">
+<p class="font-label text-[10px] tracking-widest text-on-surface-variant uppercase">Temporal Sync</p>
+<h3 class="text-lg font-headline font-bold">24 OCT 2023 · 14:00</h3>
+</div>
+<button class="p-2 rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-white/40">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-2 border border-outline-variant/10">
+<textarea class="w-full bg-surface-container-low/50 recessed-well border-none rounded-lg p-4 font-label text-xs tracking-widest text-white placeholder:text-white/20 focus:ring-1 focus:ring-secondary/30 min-h-[100px] uppercase" placeholder="ADD ENCRYPTED MEMO..."></textarea>
+</div>
+</section>
+<!-- Quantum Submit Button -->
+<section class="mt-16 relative">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-24 bg-primary/20 blur-[60px] rounded-full pointer-events-none"></div>
+<button class="w-full group relative py-6 bg-gradient-to-r from-primary-dim via-primary to-primary-dim rounded-full overflow-hidden shadow-[0_0_50px_rgba(184,159,255,0.4)] hover:shadow-[0_0_80px_rgba(184,159,255,0.6)] transition-all duration-500 active:scale-[0.98]">
+<!-- Static Particle Layer -->
+<div class="absolute inset-0 opacity-40 mix-blend-overlay">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2)_0%,transparent_50%)]"></div>
+</div>
+<div class="relative flex items-center justify-center gap-4 text-on-primary-container">
+<span class="material-symbols-outlined font-black animate-pulse" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline font-extrabold text-lg tracking-tight">QUANTUM SUBMIT</span>
+</div>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Anchor -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center h-20 pb-2 bg-[#1f1f1f]/60 backdrop-blur-2xl rounded-full mb-8 mx-auto w-[90%] max-w-md shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">history</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#00e3fd] drop-shadow-[0_0_8px_rgba(0,227,253,0.6)] scale-110 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-white/40 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+</div>
+</nav>
+</body></html>

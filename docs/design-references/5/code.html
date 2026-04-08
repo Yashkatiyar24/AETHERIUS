@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetherius Authentication Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Space_Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#ac8eff",
+                    "on-secondary-fixed-variant": "#005964",
+                    "on-secondary-fixed": "#003a42",
+                    "on-error-container": "#ffb2b9",
+                    "surface-bright": "#2c2c2c",
+                    "on-primary-fixed": "#000000",
+                    "secondary-container": "#006875",
+                    "tertiary-fixed": "#ffd709",
+                    "surface-dim": "#0e0e0e",
+                    "surface-container-lowest": "#000000",
+                    "on-surface-variant": "#ababab",
+                    "outline": "#757575",
+                    "on-tertiary-fixed-variant": "#665500",
+                    "on-primary-fixed-variant": "#350088",
+                    "inverse-primary": "#6d23f9",
+                    "primary-dim": "#834fff",
+                    "background": "#0e0e0e",
+                    "primary": "#b89fff",
+                    "surface-tint": "#b89fff",
+                    "surface-container-low": "#131313",
+                    "on-primary-container": "#2a0070",
+                    "surface-container": "#191919",
+                    "on-tertiary": "#655400",
+                    "tertiary-fixed-dim": "#efc900",
+                    "tertiary-dim": "#efc900",
+                    "outline-variant": "#484848",
+                    "secondary": "#00e3fd",
+                    "primary-fixed-dim": "#a07dff",
+                    "on-tertiary-fixed": "#453900",
+                    "tertiary-container": "#ffd709",
+                    "error-container": "#a70138",
+                    "surface-variant": "#262626",
+                    "inverse-on-surface": "#555555",
+                    "surface-container-highest": "#262626",
+                    "surface-container-high": "#1f1f1f",
+                    "primary-fixed": "#ac8eff",
+                    "on-tertiary-container": "#5b4b00",
+                    "error": "#ff6e84",
+                    "tertiary": "#ffe792",
+                    "on-primary": "#37008e",
+                    "on-secondary-container": "#e8fbff",
+                    "secondary-fixed": "#26e6ff",
+                    "on-secondary": "#004d57",
+                    "on-background": "#ffffff",
+                    "secondary-dim": "#00d4ec",
+                    "secondary-fixed-dim": "#00d7f0",
+                    "surface": "#0e0e0e",
+                    "error-dim": "#d73357",
+                    "inverse-surface": "#f9f9f9",
+                    "on-surface": "#ffffff",
+                    "on-error": "#490013"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px) saturate(180%);
+            background: linear-gradient(135deg, rgba(38, 38, 38, 0.4) 0%, rgba(14, 14, 14, 0.2) 100%);
+        }
+        .noise-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .glow-violet {
+            filter: drop-shadow(0 0 15px rgba(184, 159, 255, 0.4));
+        }
+        .kinetic-hover:active {
+            transform: scale(0.96);
+            transition: transform 0.2s cubic-bezier(0.3, 0, 0.1, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary selection:text-on-primary overflow-hidden">
+<!-- Ambient Light Leak Background -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[100px]"></div>
+<div class="absolute inset-0 noise-overlay"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
+<!-- Branding Anchor -->
+<header class="mb-16 text-center">
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-[-0.06em] text-white glow-violet uppercase mb-2">
+                AETHERIUS
+            </h1>
+<p class="font-label text-xs tracking-[0.3em] text-primary uppercase opacity-60">Initiate Sequence</p>
+</header>
+<!-- Auth Vessel -->
+<div class="w-full max-w-md glass-panel p-1 rounded-xl shadow-2xl">
+<div class="bg-surface-container-low/40 rounded-[calc(3rem-4px)] p-8 md:p-10">
+<!-- Segmented Control -->
+<div class="flex p-1 bg-surface-container-lowest rounded-full mb-10 relative overflow-hidden">
+<div class="absolute inset-y-1 left-1 w-[calc(50%-4px)] bg-surface-container-high rounded-full transition-all duration-500 shadow-lg"></div>
+<button class="relative z-10 flex-1 py-3 text-sm font-label font-bold tracking-widest text-white uppercase transition-colors">
+                        Access
+                    </button>
+<button class="relative z-10 flex-1 py-3 text-sm font-label font-bold tracking-widest text-on-surface-variant uppercase transition-colors">
+                        Onboard
+                    </button>
+</div>
+<!-- Input Sequence -->
+<form class="space-y-8">
+<div class="relative">
+<label class="absolute -top-3 left-6 px-2 text-[10px] font-label font-bold tracking-[0.2em] text-primary uppercase bg-surface-container-low rounded-sm z-20">
+                            Matrix ID
+                        </label>
+<div class="relative group">
+<input class="w-full bg-surface-container-lowest border-none rounded-xl px-6 py-5 text-sm font-label tracking-wider focus:ring-1 focus:ring-secondary/50 placeholder:text-white/10 transition-all duration-300" placeholder="IDENTITY@CORE.SYS" type="email"/>
+<div class="absolute inset-0 border-0.5 border-outline-variant/20 rounded-xl pointer-events-none group-focus-within:border-secondary/40"></div>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-3 left-6 px-2 text-[10px] font-label font-bold tracking-[0.2em] text-primary uppercase bg-surface-container-low rounded-sm z-20">
+                            Secure Key
+                        </label>
+<div class="relative group">
+<input class="w-full bg-surface-container-lowest border-none rounded-xl px-6 py-5 text-sm font-label tracking-wider focus:ring-1 focus:ring-secondary/50 placeholder:text-white/10 transition-all duration-300" placeholder="••••••••••••" type="password"/>
+<div class="absolute inset-0 border-0.5 border-outline-variant/20 rounded-xl pointer-events-none group-focus-within:border-secondary/40"></div>
+<button class="absolute right-6 top-1/2 -translate-y-1/2 text-white/20 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full relative group kinetic-hover" type="submit">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+<div class="relative flex items-center justify-center gap-3 bg-gradient-to-r from-primary-dim to-primary px-8 py-5 rounded-xl font-headline font-bold text-on-primary tracking-tighter text-lg shadow-[0_10px_30px_rgba(184,159,255,0.3)]">
+                            ENTER SYSTEM
+                            <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</div>
+</button>
+</form>
+<!-- Biometric Link -->
+<div class="mt-10 flex flex-col items-center">
+<button class="flex items-center gap-2 py-2 px-4 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 group">
+<span class="material-symbols-outlined text-secondary opacity-80 group-hover:opacity-100">face</span>
+<span class="text-[10px] font-label font-bold tracking-[0.15em] text-on-surface-variant uppercase">Biometric Link</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Legal/Translucent links -->
+<footer class="mt-auto pt-12 flex flex-col md:flex-row gap-8 items-center font-label text-[10px] tracking-[0.2em] uppercase opacity-40">
+<a class="hover:opacity-100 transition-opacity" href="#">Privacy Protocol</a>
+<div class="hidden md:block w-1 h-1 bg-white/20 rounded-full"></div>
+<a class="hover:opacity-100 transition-opacity" href="#">Terminals of Service</a>
+<div class="hidden md:block w-1 h-1 bg-white/20 rounded-full"></div>
+<a class="hover:opacity-100 transition-opacity" href="#">Network Status: Nominal</a>
+</footer>
+</main>
+<!-- Visual Decor Elements -->
+<div class="fixed top-12 left-12 hidden lg:block opacity-20">
+<div class="font-label text-[10px] tracking-[0.4em] uppercase space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-12 h-[1px] bg-white"></span>
+                CORE_LINK_STABLE
+            </div>
+<div class="flex items-center gap-3">
+<span class="w-12 h-[1px] bg-white/20"></span>
+                ENCRYPTION_LAYER_04
+            </div>
+</div>
+</div>
+<div class="fixed bottom-12 right-12 hidden lg:block opacity-20">
+<div class="font-label text-[10px] tracking-[0.4em] uppercase text-right">
+            TIMESTAMP_COORD
+            <div class="mt-2 text-secondary font-bold">34.0522° N, 118.2437° W</div>
+</div>
+</div>
+</body></html>
